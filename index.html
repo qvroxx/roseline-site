@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roseline 🐾 Official Portfolio</title>
+    <title>Roseline 🐾 Official Portfolio & Shop</title>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
@@ -77,6 +77,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            cursor: pointer;
         }
 
         .logo i {
@@ -109,6 +110,7 @@
             padding: 8px 16px;
             border-radius: 20px;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         nav ul li a:hover, nav ul li a.active {
@@ -125,6 +127,21 @@
             margin: 0 auto;
             padding: 130px 20px 60px;
             flex: 1;
+        }
+
+        /* Page Tab Visibility System */
+        .page-tab {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .page-tab.active-tab {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Hero Section */
@@ -262,6 +279,50 @@
             line-height: 1.6;
         }
 
+        /* Section Title Style */
+        .section-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            color: #fff;
+            text-shadow: 0 0 12px var(--pink-glow);
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        /* "SOON" Banner / Card */
+        .soon-card {
+            background: var(--card-bg);
+            border: 2px dashed var(--border-color);
+            border-radius: 24px;
+            padding: 80px 20px;
+            text-align: center;
+            backdrop-filter: blur(12px);
+        }
+
+        .soon-badge {
+            font-size: 55px;
+            font-weight: 800;
+            color: var(--pink-primary);
+            text-shadow: 0 0 20px var(--pink-glow);
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .soon-card p {
+            color: var(--text-muted);
+            font-size: 16px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
         /* Team / Contact Section */
         .team-section {
             background: var(--card-bg);
@@ -270,13 +331,6 @@
             padding: 35px 25px;
             backdrop-filter: blur(12px);
             text-align: center;
-        }
-
-        .team-section h2 {
-            font-size: 26px;
-            color: #fff;
-            margin-bottom: 25px;
-            text-shadow: 0 0 10px var(--pink-glow);
         }
 
         .team-grid {
@@ -289,7 +343,7 @@
         .team-card {
             background: rgba(13, 6, 14, 0.6);
             border: 1px solid var(--border-color);
-            padding: 20px 25px;
+            padding: 25px 30px;
             border-radius: 18px;
             min-width: 260px;
             text-align: center;
@@ -311,17 +365,17 @@
         }
 
         .team-name {
-            font-size: 18px;
+            font-size: 20px;
             color: #fff;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .discord-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 16px;
+            padding: 9px 18px;
             background: #5865F2;
             color: #fff;
             text-decoration: none;
@@ -387,71 +441,103 @@
 
     <!-- Header / Navbar -->
     <header>
-        <a href="#" class="logo"><i class="fa-solid fa-cat"></i> Roseline</a>
+        <div class="logo" onclick="switchTab('home')"><i class="fa-solid fa-cat"></i> Roseline</div>
         <div class="menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
         <nav>
             <ul id="navMenu">
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#models">Models</a></li>
-                <li><a href="#robux">Robux Store</a></li>
-                <li><a href="#team">Contact & Discord</a></li>
+                <li><a onclick="switchTab('home')" id="nav-home" class="active">Home</a></li>
+                <li><a onclick="switchTab('showcase')" id="nav-showcase">Showcase</a></li>
+                <li><a onclick="switchTab('shop')" id="nav-shop">Shop</a></li>
+                <li><a onclick="switchTab('contact')" id="nav-contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="container">
-        <!-- Hero Section -->
-        <div class="hero">
-            <div class="hero-badge"><i class="fa-solid fa-cube"></i> ROBLOX MODELER & DEVELOPER</div>
-            <h1>Welcome to <span>Roseline</span>'s Portfolio</h1>
-            <p>Creating high-quality custom Roblox 3D models, assets, and providing safe Robux deals. Elevate your Roblox games and avatar style today!</p>
-            <div class="btn-group">
-                <a href="https://discord.gg/yEZcT43BeA" target="_blank" class="btn btn-primary"><i class="fa-brands fa-discord"></i> Join Discord Store</a>
-                <a href="#team" class="btn btn-secondary"><i class="fa-solid fa-user"></i> Contact Us</a>
-            </div>
-        </div>
-
-        <!-- Cards Grid -->
-        <div class="grid-3">
-            <div class="card" id="models">
-                <div class="card-icon"><i class="fa-solid fa-shapes"></i></div>
-                <h3>3D Modeling</h3>
-                <p>Custom assets, vehicles, weapons, and environmental models crafted specifically for Roblox Studio.</p>
+        <!-- 1. HOME TAB -->
+        <div id="tab-home" class="page-tab active-tab">
+            <div class="hero">
+                <div class="hero-badge"><i class="fa-solid fa-cube"></i> ROBLOX MODELER & DEVELOPER</div>
+                <h1>Welcome to <span>Roseline</span>'s Portfolio</h1>
+                <p>Creating high-quality custom Roblox 3D models, assets, and providing safe Robux deals. Elevate your Roblox games and avatar style today!</p>
+                <div class="btn-group">
+                    <a href="https://discord.gg/yEZcT43BeA" target="_blank" class="btn btn-primary"><i class="fa-brands fa-discord"></i> Join Discord Store</a>
+                    <button onclick="switchTab('showcase')" class="btn btn-secondary"><i class="fa-solid fa-eye"></i> View Showcase</button>
+                </div>
             </div>
 
-            <div class="card" id="robux">
-                <div class="card-icon"><i class="fa-solid fa-coins"></i></div>
-                <h3>Robux Shop</h3>
-                <p>Fast, reliable, and affordable Robux deals with instant delivery options for your account.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-gem"></i></div>
-                <h3>Portfolio Showcase</h3>
-                <p>Explore previous works, client orders, and custom game assets designed by Roseline.</p>
-            </div>
-        </div>
-
-        <!-- Team & Contact Section -->
-        <div class="team-section" id="team">
-            <h2>Meet the Team & Contact</h2>
-            <div class="team-grid">
-                <!-- Roseline Card -->
-                <div class="team-card">
-                    <div class="team-role">Founder / Seller</div>
-                    <div class="team-name">Roseline</div>
-                    <a href="https://discord.com/users/1259913195645042700" target="_blank" class="discord-btn">
-                        <i class="fa-brands fa-discord"></i> Discord Profile
-                    </a>
+            <div class="grid-3">
+                <div class="card" onclick="switchTab('showcase')" style="cursor: pointer;">
+                    <div class="card-icon"><i class="fa-solid fa-shapes"></i></div>
+                    <h3>3D Modeling</h3>
+                    <p>Custom assets, vehicles, weapons, and environmental models crafted specifically for Roblox Studio.</p>
                 </div>
 
-                <!-- Developer Card -->
-                <div class="team-card">
-                    <div class="team-role">Site Developer</div>
-                    <div class="team-name">Tuna</div>
-                    <a href="https://discord.com/users/1080897669431574609" target="_blank" class="discord-btn">
-                        <i class="fa-brands fa-discord"></i> Discord Profile
-                    </a>
+                <div class="card" onclick="switchTab('shop')" style="cursor: pointer;">
+                    <div class="card-icon"><i class="fa-solid fa-coins"></i></div>
+                    <h3>Robux Shop</h3>
+                    <p>Fast, reliable, and affordable Robux deals with instant delivery options for your account.</p>
+                </div>
+
+                <div class="card" onclick="switchTab('showcase')" style="cursor: pointer;">
+                    <div class="card-icon"><i class="fa-solid fa-gem"></i></div>
+                    <h3>Portfolio Showcase</h3>
+                    <p>Explore previous works, client orders, and custom game assets designed by Roseline.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. SHOWCASE (PREVIEW) TAB -->
+        <div id="tab-showcase" class="page-tab">
+            <div class="section-header">
+                <h2>Model Preview & Showcase</h2>
+                <p>Browse through custom 3D Roblox models created by Roseline.</p>
+            </div>
+            <div class="soon-card">
+                <div class="soon-badge">SOON...</div>
+                <p>We are currently setting up the image gallery! Custom 3D model previews and photos will be displayed here very soon.</p>
+            </div>
+        </div>
+
+        <!-- 3. SHOP TAB -->
+        <div id="tab-shop" class="page-tab">
+            <div class="section-header">
+                <h2>Roseline Store</h2>
+                <p>Buy custom models and cheap Robux safely.</p>
+            </div>
+            <div class="soon-card">
+                <div class="soon-badge">SOON...</div>
+                <p>Our web shop is under construction! For current orders and purchasing Robux, please join our official Discord server.</p>
+                <br>
+                <a href="https://discord.gg/yEZcT43BeA" target="_blank" class="btn btn-primary"><i class="fa-brands fa-discord"></i> Order on Discord</a>
+            </div>
+        </div>
+
+        <!-- 4. CONTACT TAB -->
+        <div id="tab-contact" class="page-tab">
+            <div class="section-header">
+                <h2>Meet the Team & Contact</h2>
+                <p>Reach out to us directly on Discord for deals and inquiries.</p>
+            </div>
+            <div class="team-section">
+                <div class="team-grid">
+                    <!-- Roseline Card -->
+                    <div class="team-card">
+                        <div class="team-role">Founder / Seller</div>
+                        <div class="team-name">Roseline</div>
+                        <a href="https://discord.com/users/1259913195645042700" target="_blank" class="discord-btn">
+                            <i class="fa-brands fa-discord"></i> Discord Profile
+                        </a>
+                    </div>
+
+                    <!-- Developer Card -->
+                    <div class="team-card">
+                        <div class="team-role">Site Developer</div>
+                        <div class="team-name">Tuna</div>
+                        <a href="https://discord.com/users/1080897669431574609" target="_blank" class="discord-btn">
+                            <i class="fa-brands fa-discord"></i> Discord Profile
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -462,10 +548,31 @@
         <p>&copy; 2026 <span>Roseline</span>. All Rights Reserved.</p>
     </footer>
 
-    <!-- Background Animation Script -->
+    <!-- Scripts for Navigation and Animation -->
     <script>
         function toggleMenu() {
             document.getElementById('navMenu').classList.toggle('show');
+        }
+
+        /* Tab Switch Function */
+        function switchTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.page-tab');
+            tabs.forEach(tab => tab.classList.remove('active-tab'));
+
+            // Remove active style from menu buttons
+            const navLinks = document.querySelectorAll('nav ul li a');
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            // Show selected tab & set active navbar link
+            document.getElementById('tab-' + tabName).classList.add('active-tab');
+            document.getElementById('nav-' + tabName).classList.add('active');
+
+            // Close mobile menu if open
+            document.getElementById('navMenu').classList.remove('show');
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         /* Pink Particles Animation */
@@ -503,7 +610,7 @@
             }
         }
 
-        for (let i = 0; i < 40; i++) particles.push(new Particle());
+        for (i = 0; i < 40; i++) particles.push(new Particle());
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
