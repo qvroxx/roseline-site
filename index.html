@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roseline 🐾 Official Website</title>
+    <title>Roseline 🐾 Official Portfolio</title>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
@@ -41,7 +41,7 @@
             position: relative;
         }
 
-        /* Animated Floating Paws / Particles Background */
+        /* Animated Particles Background */
         #particle-canvas {
             position: fixed;
             top: 0;
@@ -52,7 +52,7 @@
             pointer-events: none;
         }
 
-        /* Navbar */
+        /* Header / Navbar */
         header {
             position: fixed;
             top: 0;
@@ -76,7 +76,7 @@
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .logo i {
@@ -118,7 +118,7 @@
             box-shadow: 0 0 15px rgba(255, 42, 171, 0.4);
         }
 
-        /* Container & Sections */
+        /* Container & Main Layout */
         .container {
             max-width: 1100px;
             width: 100%;
@@ -127,10 +127,10 @@
             flex: 1;
         }
 
-        /* Hero */
+        /* Hero Section */
         .hero {
             text-align: center;
-            padding: 50px 20px;
+            padding: 55px 25px;
             margin-bottom: 40px;
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -140,31 +140,23 @@
             position: relative;
         }
 
-        .hero-cat-avatar {
-            width: 90px;
-            height: 90px;
-            background: rgba(255, 102, 196, 0.15);
-            border: 2px solid var(--pink-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            font-size: 42px;
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 102, 196, 0.12);
+            border: 1px solid var(--border-color);
             color: var(--pink-primary);
-            box-shadow: 0 0 20px rgba(255, 42, 171, 0.4);
-            animation: bounceCat 3s infinite ease-in-out;
-        }
-
-        @keyframes bounceCat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
         }
 
         .hero h1 {
-            font-size: 40px;
+            font-size: 38px;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             color: #fff;
             text-shadow: 0 0 15px var(--pink-glow);
         }
@@ -172,14 +164,15 @@
         .hero h1 span {
             font-family: 'Great Vibes', cursive;
             color: var(--pink-primary);
-            font-size: 55px;
+            font-size: 52px;
         }
 
         .hero p {
-            font-size: 16px;
+            font-size: 15px;
             color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 28px;
+            max-width: 650px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
         }
 
         .btn-group {
@@ -241,7 +234,6 @@
             backdrop-filter: blur(12px);
             transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
         }
 
         .card:hover {
@@ -261,9 +253,6 @@
             font-size: 20px;
             color: #fff;
             margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .card p {
@@ -309,26 +298,26 @@
                 display: block;
             }
 
-            .hero h1 { font-size: 30px; }
-            .hero h1 span { font-size: 40px; }
+            .hero h1 { font-size: 28px; }
+            .hero h1 span { font-size: 42px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Canlı Arka Plan Canvas (Pati ve Işıklar) -->
+    <!-- Light Particles Background Canvas -->
     <canvas id="particle-canvas"></canvas>
 
-    <!-- Header -->
+    <!-- Header / Navbar -->
     <header>
         <a href="#" class="logo"><i class="fa-solid fa-cat"></i> Roseline</a>
         <div class="menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
         <nav>
             <ul id="navMenu">
-                <li><a href="#" class="active">Ana Sayfa</a></li>
-                <li><a href="#">Hakkımda</a></li>
-                <li><a href="#">Kedilerim 🐱</a></li>
-                <li><a href="#">İletişim</a></li>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Models</a></li>
+                <li><a href="#">Robux Store</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -336,51 +325,49 @@
     <div class="container">
         <!-- Hero Section -->
         <div class="hero">
-            <div class="hero-cat-avatar">
-                <i class="fa-solid fa-cat"></i>
-            </div>
-            <h1>Hoş Geldiniz, Ben <span>Roseline</span> 🐾</h1>
-            <p>Sevimli dostlarımız, pembe detaylar ve kedi sevgisiyle dolu dijital dünyama hoş geldiniz!</p>
+            <div class="hero-badge"><i class="fa-solid fa-cube"></i> ROBLOX MODELER & DEVELOPER</div>
+            <h1>Welcome to <span>Roseline</span>'s Portfolio</h1>
+            <p>Creating high-quality custom Roblox 3D models, assets, and providing safe Robux deals. Elevate your Roblox games and avatar style today!</p>
             <div class="btn-group">
-                <a href="#" class="btn btn-primary"><i class="fa-solid fa-paw"></i> Pati Dünyası</a>
-                <a href="#" class="btn btn-secondary"><i class="fa-solid fa-envelope"></i> Bize Ulaşın</a>
+                <a href="#" class="btn btn-primary"><i class="fa-solid fa-box-open"></i> View Models</a>
+                <a href="#" class="btn btn-secondary"><i class="fa-solid fa-coins"></i> Buy Robux</a>
             </div>
         </div>
 
-        <!-- Cards -->
+        <!-- Cards Grid -->
         <div class="grid-3">
             <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-paw"></i></div>
-                <h3>Pati Günlüğü <i class="fa-solid fa-heart" style="font-size:14px; color:var(--pink-primary);"></i></h3>
-                <p>Kedilerle yaşam, sevimli anılar ve dostlarımızın günlük eğlenceli hikayeleri burada!</p>
+                <div class="card-icon"><i class="fa-solid fa-shapes"></i></div>
+                <h3>3D Modeling</h3>
+                <p>Custom assets, vehicles, weapons, and environmental models crafted specifically for Roblox Studio.</p>
             </div>
 
             <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-fish"></i></div>
-                <h3>Sosyal Medya</h3>
-                <p>Instagram, TikTok ve diğer tüm platformlardaki kedi içerikli paylaşımlarıma ulaşın.</p>
+                <div class="card-icon"><i class="fa-solid fa-coins"></i></div>
+                <h3>Robux Shop</h3>
+                <p>Fast, reliable, and affordable Robux deals with instant delivery options for your account.</p>
             </div>
 
             <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-icons"></i></div>
-                <h3>Kedi Galerisi</h3>
-                <p>En tatlı fotoğraflar, konsept görseller ve pembe kedi temalı koleksiyonlar.</p>
+                <div class="card-icon"><i class="fa-solid fa-gem"></i></div>
+                <h3>Portfolio Showcase</h3>
+                <p>Explore previous works, client orders, and custom game assets designed by Roseline.</p>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 <span>Roseline 🐾</span>. Tüm Hakları Saklıdır.</p>
+        <p>&copy; 2026 <span>Roseline</span>. All Rights Reserved.</p>
     </footer>
 
-    <!-- Arka Plan Animasyon JS (Pati İzi Animasyonlu) -->
+    <!-- Background Animation Script -->
     <script>
         function toggleMenu() {
             document.getElementById('navMenu').classList.toggle('show');
         }
 
-        /* Pembe Pati ve Işık Parçacıkları Arka Planı */
+        /* Pink Particles Animation */
         const canvas = document.getElementById('particle-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -392,39 +379,30 @@
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
 
-        class PawParticle {
+        class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 12 + 8; // Pati boyutu
+                this.size = Math.random() * 2.5 + 0.5;
                 this.speedX = (Math.random() - 0.5) * 0.4;
-                this.speedY = -Math.random() * 0.5 - 0.2; // Yavaşça yukarı süzülme
-                this.opacity = Math.random() * 0.4 + 0.1;
+                this.speedY = (Math.random() - 0.5) * 0.4;
             }
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
 
-                // Ekrandan çıkınca aşağıdan tekrar başlat
-                if (this.y < -20) {
-                    this.y = canvas.height + 20;
-                    this.x = Math.random() * canvas.width;
-                }
-                if (this.x < -20 || this.x > canvas.width + 20) {
-                    this.speedX *= -1;
-                }
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
             }
             draw() {
-                ctx.save();
-                ctx.font = `${this.size}px "Font Awesome 6 Free"`;
-                ctx.fontWeight = "900";
-                ctx.fillStyle = `rgba(255, 102, 196, ${this.opacity})`;
-                ctx.fillText("🐾", this.x, this.y);
-                ctx.restore();
+                ctx.fillStyle = 'rgba(255, 102, 196, 0.45)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
             }
         }
 
-        for (let i = 0; i < 25; i++) particles.push(new PawParticle());
+        for (let i = 0; i < 40; i++) particles.push(new Particle());
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
