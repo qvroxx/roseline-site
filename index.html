@@ -224,6 +224,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 22px;
+            margin-bottom: 40px;
         }
 
         .card {
@@ -259,6 +260,81 @@
             font-size: 14px;
             color: var(--text-muted);
             line-height: 1.6;
+        }
+
+        /* Team / Contact Section */
+        .team-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 35px 25px;
+            backdrop-filter: blur(12px);
+            text-align: center;
+        }
+
+        .team-section h2 {
+            font-size: 26px;
+            color: #fff;
+            margin-bottom: 25px;
+            text-shadow: 0 0 10px var(--pink-glow);
+        }
+
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .team-card {
+            background: rgba(13, 6, 14, 0.6);
+            border: 1px solid var(--border-color);
+            padding: 20px 25px;
+            border-radius: 18px;
+            min-width: 260px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            border-color: var(--pink-primary);
+            box-shadow: 0 0 15px rgba(255, 42, 171, 0.3);
+        }
+
+        .team-role {
+            font-size: 12px;
+            color: var(--pink-primary);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .team-name {
+            font-size: 18px;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .discord-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: #5865F2;
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .discord-btn:hover {
+            background: #4752C4;
+            box-shadow: 0 0 12px rgba(88, 101, 242, 0.6);
+            transform: translateY(-2px);
         }
 
         footer {
@@ -300,6 +376,7 @@
 
             .hero h1 { font-size: 28px; }
             .hero h1 span { font-size: 42px; }
+            .team-card { width: 100%; }
         }
     </style>
 </head>
@@ -315,9 +392,9 @@
         <nav>
             <ul id="navMenu">
                 <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Models</a></li>
-                <li><a href="#">Robux Store</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#models">Models</a></li>
+                <li><a href="#robux">Robux Store</a></li>
+                <li><a href="#team">Contact & Discord</a></li>
             </ul>
         </nav>
     </header>
@@ -329,20 +406,20 @@
             <h1>Welcome to <span>Roseline</span>'s Portfolio</h1>
             <p>Creating high-quality custom Roblox 3D models, assets, and providing safe Robux deals. Elevate your Roblox games and avatar style today!</p>
             <div class="btn-group">
-                <a href="#" class="btn btn-primary"><i class="fa-solid fa-box-open"></i> View Models</a>
-                <a href="#" class="btn btn-secondary"><i class="fa-solid fa-coins"></i> Buy Robux</a>
+                <a href="https://discord.gg/yEZcT43BeA" target="_blank" class="btn btn-primary"><i class="fa-brands fa-discord"></i> Join Discord Store</a>
+                <a href="#team" class="btn btn-secondary"><i class="fa-solid fa-user"></i> Contact Us</a>
             </div>
         </div>
 
         <!-- Cards Grid -->
         <div class="grid-3">
-            <div class="card">
+            <div class="card" id="models">
                 <div class="card-icon"><i class="fa-solid fa-shapes"></i></div>
                 <h3>3D Modeling</h3>
                 <p>Custom assets, vehicles, weapons, and environmental models crafted specifically for Roblox Studio.</p>
             </div>
 
-            <div class="card">
+            <div class="card" id="robux">
                 <div class="card-icon"><i class="fa-solid fa-coins"></i></div>
                 <h3>Robux Shop</h3>
                 <p>Fast, reliable, and affordable Robux deals with instant delivery options for your account.</p>
@@ -352,6 +429,30 @@
                 <div class="card-icon"><i class="fa-solid fa-gem"></i></div>
                 <h3>Portfolio Showcase</h3>
                 <p>Explore previous works, client orders, and custom game assets designed by Roseline.</p>
+            </div>
+        </div>
+
+        <!-- Team & Contact Section -->
+        <div class="team-section" id="team">
+            <h2>Meet the Team & Contact</h2>
+            <div class="team-grid">
+                <!-- Roseline Card -->
+                <div class="team-card">
+                    <div class="team-role">Founder / Seller</div>
+                    <div class="team-name">Roseline</div>
+                    <a href="https://discord.com/users/1259913195645042700" target="_blank" class="discord-btn">
+                        <i class="fa-brands fa-discord"></i> Discord Profile
+                    </a>
+                </div>
+
+                <!-- Developer Card -->
+                <div class="team-card">
+                    <div class="team-role">Site Developer</div>
+                    <div class="team-name">Tuna</div>
+                    <a href="https://discord.com/users/1080897669431574609" target="_blank" class="discord-btn">
+                        <i class="fa-brands fa-discord"></i> Discord Profile
+                    </a>
+                </div>
             </div>
         </div>
     </div>
