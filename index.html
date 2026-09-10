@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roseline - Official Website</title>
+    <title>Roseline 🐾 Official Website</title>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
@@ -11,7 +11,7 @@
     <style>
         :root {
             --bg-color: #0d060e;
-            --card-bg: rgba(25a, 15, 35, 0.08);
+            --card-bg: rgba(255, 102, 196, 0.07);
             --pink-primary: #ff66c4;
             --pink-glow: #ff2aab;
             --pink-soft: #f8a5c2;
@@ -38,9 +38,10 @@
             display: flex;
             flex-direction: column;
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* Particles Background */
+        /* Animated Floating Paws / Particles Background */
         #particle-canvas {
             position: fixed;
             top: 0;
@@ -68,11 +69,19 @@
         }
 
         .logo {
-            font-size: 28px;
+            font-size: 30px;
             font-family: 'Great Vibes', cursive;
             color: var(--pink-primary);
             text-shadow: 0 0 12px var(--pink-glow);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo i {
+            font-size: 20px;
+            transform: rotate(-10deg);
         }
 
         .menu-toggle {
@@ -128,10 +137,32 @@
             border-radius: 24px;
             backdrop-filter: blur(12px);
             box-shadow: 0 0 25px rgba(255, 42, 171, 0.15);
+            position: relative;
+        }
+
+        .hero-cat-avatar {
+            width: 90px;
+            height: 90px;
+            background: rgba(255, 102, 196, 0.15);
+            border: 2px solid var(--pink-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 42px;
+            color: var(--pink-primary);
+            box-shadow: 0 0 20px rgba(255, 42, 171, 0.4);
+            animation: bounceCat 3s infinite ease-in-out;
+        }
+
+        @keyframes bounceCat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
 
         .hero h1 {
-            font-size: 42px;
+            font-size: 40px;
             font-weight: 700;
             margin-bottom: 12px;
             color: #fff;
@@ -209,6 +240,8 @@
             padding: 28px;
             backdrop-filter: blur(12px);
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
         .card:hover {
@@ -228,6 +261,9 @@
             font-size: 20px;
             color: #fff;
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .card p {
@@ -280,18 +316,18 @@
 </head>
 <body>
 
-    <!-- Canlı Arka Plan Canvas -->
+    <!-- Canlı Arka Plan Canvas (Pati ve Işıklar) -->
     <canvas id="particle-canvas"></canvas>
 
     <!-- Header -->
     <header>
-        <a href="#" class="logo">Roseline</a>
+        <a href="#" class="logo"><i class="fa-solid fa-cat"></i> Roseline</a>
         <div class="menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
         <nav>
             <ul id="navMenu">
                 <li><a href="#" class="active">Ana Sayfa</a></li>
                 <li><a href="#">Hakkımda</a></li>
-                <li><a href="#">Projeler</a></li>
+                <li><a href="#">Kedilerim 🐱</a></li>
                 <li><a href="#">İletişim</a></li>
             </ul>
         </nav>
@@ -300,10 +336,13 @@
     <div class="container">
         <!-- Hero Section -->
         <div class="hero">
-            <h1>Hoş Geldiniz, Ben <span>Roseline</span></h1>
-            <p>Tasarımlarım, projelerim ve içeriklerimle buradayım. Pembe detaylarla bezenmiş dünyamı keşfedin!</p>
+            <div class="hero-cat-avatar">
+                <i class="fa-solid fa-cat"></i>
+            </div>
+            <h1>Hoş Geldiniz, Ben <span>Roseline</span> 🐾</h1>
+            <p>Sevimli dostlarımız, pembe detaylar ve kedi sevgisiyle dolu dijital dünyama hoş geldiniz!</p>
             <div class="btn-group">
-                <a href="#" class="btn btn-primary"><i class="fa-solid fa-heart"></i> Keşfe Başla</a>
+                <a href="#" class="btn btn-primary"><i class="fa-solid fa-paw"></i> Pati Dünyası</a>
                 <a href="#" class="btn btn-secondary"><i class="fa-solid fa-envelope"></i> Bize Ulaşın</a>
             </div>
         </div>
@@ -311,37 +350,37 @@
         <!-- Cards -->
         <div class="grid-3">
             <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                <h3>Kişisel Alan</h3>
-                <p>Roseline dünyasından haberler, duyurular ve kişisel paylaşımlar burada yer alır.</p>
+                <div class="card-icon"><i class="fa-solid fa-paw"></i></div>
+                <h3>Pati Günlüğü <i class="fa-solid fa-heart" style="font-size:14px; color:var(--pink-primary);"></i></h3>
+                <p>Kedilerle yaşam, sevimli anılar ve dostlarımızın günlük eğlenceli hikayeleri burada!</p>
             </div>
 
             <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-compact-disc"></i></div>
+                <div class="card-icon"><i class="fa-solid fa-fish"></i></div>
                 <h3>Sosyal Medya</h3>
-                <p>Tüm platformlardaki güncel hesaplarıma ve içeriklerime tek tıkla erişin.</p>
+                <p>Instagram, TikTok ve diğer tüm platformlardaki kedi içerikli paylaşımlarıma ulaşın.</p>
             </div>
 
             <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-gem"></i></div>
-                <h3>Özel Galeri</h3>
-                <p>Görsel tasarımlar, fotoğraflar ve öne çıkan içerik koleksiyonları.</p>
+                <div class="card-icon"><i class="fa-solid fa-icons"></i></div>
+                <h3>Kedi Galerisi</h3>
+                <p>En tatlı fotoğraflar, konsept görseller ve pembe kedi temalı koleksiyonlar.</p>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 <span>Roseline</span>. Tüm Hakları Saklıdır.</p>
+        <p>&copy; 2026 <span>Roseline 🐾</span>. Tüm Hakları Saklıdır.</p>
     </footer>
 
-    <!-- Arka Plan Animasyon JS -->
+    <!-- Arka Plan Animasyon JS (Pati İzi Animasyonlu) -->
     <script>
         function toggleMenu() {
             document.getElementById('navMenu').classList.toggle('show');
         }
 
-        /* Pembe Parçacık Arka Plan */
+        /* Pembe Pati ve Işık Parçacıkları Arka Planı */
         const canvas = document.getElementById('particle-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -353,29 +392,39 @@
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
 
-        class Particle {
+        class PawParticle {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 0.5;
-                this.speedX = (Math.random() - 0.5) * 0.3;
-                this.speedY = (Math.random() - 0.5) * 0.3;
+                this.size = Math.random() * 12 + 8; // Pati boyutu
+                this.speedX = (Math.random() - 0.5) * 0.4;
+                this.speedY = -Math.random() * 0.5 - 0.2; // Yavaşça yukarı süzülme
+                this.opacity = Math.random() * 0.4 + 0.1;
             }
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
-                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+
+                // Ekrandan çıkınca aşağıdan tekrar başlat
+                if (this.y < -20) {
+                    this.y = canvas.height + 20;
+                    this.x = Math.random() * canvas.width;
+                }
+                if (this.x < -20 || this.x > canvas.width + 20) {
+                    this.speedX *= -1;
+                }
             }
             draw() {
-                ctx.fillStyle = 'rgba(255, 102, 196, 0.4)';
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
+                ctx.save();
+                ctx.font = `${this.size}px "Font Awesome 6 Free"`;
+                ctx.fontWeight = "900";
+                ctx.fillStyle = `rgba(255, 102, 196, ${this.opacity})`;
+                ctx.fillText("🐾", this.x, this.y);
+                ctx.restore();
             }
         }
 
-        for (let i = 0; i < 35; i++) particles.push(new Particle());
+        for (let i = 0; i < 25; i++) particles.push(new PawParticle());
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
